@@ -49,10 +49,10 @@ Widget hamburgerMenu(BuildContext context) {
                     ],
                   ))),
           Padding(padding: EdgeInsets.only(top: 20)),
-          listItem("Menu", context),
-          listItem("Locations", context),
-          listItem("Offers", context),
-          listItem("Settings", context),
+          listItem("Menu", '/menu', context),
+          listItem("Locations", '/', context),
+          listItem("Offers", '/', context),
+          listItem("Settings", '/', context),
           footerItem("Customer Service", context),
           footerItem("Legal", context)
         ],
@@ -61,7 +61,7 @@ Widget hamburgerMenu(BuildContext context) {
   );
 }
 
-Widget listItem(String name, BuildContext context) {
+Widget listItem(String name, String route, BuildContext context) {
   return ListTile(
     contentPadding: EdgeInsets.fromLTRB(50, 0, 0, 0),
     dense: true,
@@ -72,10 +72,7 @@ Widget listItem(String name, BuildContext context) {
           TextStyle(fontFamily: 'Fredoka', color: Colors.black, fontSize: 18),
     ),
     onTap: () {
-      // Update the state of the app
-      // ...
-      // Then close the drawer
-      Navigator.pop(context);
+      Navigator.pushNamed(context, route);
     },
   );
 }

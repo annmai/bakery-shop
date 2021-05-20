@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/colors.dart';
 import 'screens/main_screen/main_screen.dart';
+import 'screens/menu/menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget {
       ),
       home: MainScreen(title: 'Bakery Shop'),
       debugShowCheckedModeBanner: false,
+      // initialRoute: '/',
+      routes: {
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/menu': (context) => Menu(),
+      },
     );
   }
 }

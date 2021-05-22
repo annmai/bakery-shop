@@ -50,10 +50,10 @@ class _Menu extends State<Menu> {
 
   void _loadMenuItems() {
     final menuList = [
-      menuTile('Cupcakes', ''),
-      menuTile('Cake', ''),
-      menuTile('Cookies', ''),
-      menuTile('Donuts', '')
+      menuTile('Cupcakes', 'lib/assets/images/cupcake-1.jpg', '/cupcakes'),
+      menuTile('Cake', 'lib/assets/images/StrawberryCake.png', '/cake'),
+      menuTile('Cookies', 'lib/assets/images/StrawberryCake.png', '/cookies'),
+      menuTile('Donuts', 'lib/assets/images/StrawberryCake.png', '/donuts')
     ];
 
     var future = Future(() {});
@@ -68,16 +68,20 @@ class _Menu extends State<Menu> {
     }
   }
 
-  Widget menuTile(String title, String imagePath) {
+  Widget menuTile(String title, String imagePath, String route) {
     return ListTile(
-        leading: Image(
-          image: AssetImage('lib/assets/images/StrawberryCake.png'),
-          width: 100,
-          height: 100,
-        ),
-        title: Text(
-          title,
-          style: menuTextStyle(),
-        ));
+      leading: Image(
+        image: AssetImage(imagePath),
+        width: 100,
+        height: 100,
+      ),
+      title: Text(
+        title,
+        style: menuTextStyle(),
+      ),
+      onTap: () {
+        Navigator.pushNamed(context, route);
+      },
+    );
   }
 }

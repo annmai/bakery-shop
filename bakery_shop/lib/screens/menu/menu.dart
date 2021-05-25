@@ -20,7 +20,9 @@ class _Menu extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[Text('Menu')],
+        title: Text('menu',
+            style: TextStyle(
+                fontFamily: 'Fredoka', color: Colors.white, fontSize: 18)),
       ),
       body: AnimatedList(
         key: _menuKey,
@@ -52,8 +54,10 @@ class _Menu extends State<Menu> {
     final menuList = [
       menuTile('Cupcakes', 'lib/assets/images/cupcake-1.jpg', '/cupcakes'),
       menuTile('Cake', 'lib/assets/images/StrawberryCake.png', '/cake'),
-      menuTile('Cookies', 'lib/assets/images/StrawberryCake.png', '/cookies'),
-      menuTile('Donuts', 'lib/assets/images/StrawberryCake.png', '/donuts')
+      menuTile(
+          'Cookies', 'lib/assets/images/chocolate-chip-cookie.png', '/cookies'),
+      menuTile('Donuts', 'lib/assets/images/strawberry-sprinkles-donut.png',
+          '/donuts')
     ];
 
     var future = Future(() {});
@@ -70,10 +74,13 @@ class _Menu extends State<Menu> {
 
   Widget menuTile(String title, String imagePath, String route) {
     return ListTile(
-      leading: Image(
-        image: AssetImage(imagePath),
-        width: 100,
-        height: 100,
+      leading: Padding(
+        padding: EdgeInsets.all(6),
+        child: Image(
+          image: AssetImage(imagePath),
+          width: 80,
+          height: 80,
+        ),
       ),
       title: Text(
         title,

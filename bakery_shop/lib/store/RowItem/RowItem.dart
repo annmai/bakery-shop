@@ -8,8 +8,10 @@ abstract class _RowItem with Store {
   final int id;
   final String name;
   final int calories;
+  final double price;
+  final String imagePath;
 
-  _RowItem(this.id, this.name, this.calories);
+  _RowItem(this.id, this.name, this.calories, this.price, this.imagePath);
 
   @observable
   int qty = 0;

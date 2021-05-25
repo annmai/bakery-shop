@@ -35,7 +35,7 @@ class _PastryList extends State<PastryList> {
     });
   }
 
-  Widget cupcakeTile(int id, String name, int calories, String imagePath) {
+  Widget pastryTile(int id, String name, int calories, String imagePath) {
     return ListTile(
       leading: Image(
         image: AssetImage(imagePath),
@@ -112,7 +112,7 @@ class _PastryList extends State<PastryList> {
                 physics: ScrollPhysics(),
                 itemCount: widget.myItems.length,
                 itemBuilder: (context, index) {
-                  return cupcakeTile(
+                  return pastryTile(
                       widget.myItems[index].id,
                       widget.myItems[index].name,
                       widget.myItems[index].calories,
